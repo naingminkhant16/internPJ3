@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.login-container {
+    background: linear-gradient(to right, rgba(60, 60, 60, 0.4), rgba(60, 60, 60, 0.4)), url("../../images/bg.avif");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    object-fit: cover;
+    position: relative;
+}
+
+.login {
+    position: absolute;
+    background-color: #ffffff10;
+    backdrop-filter: blur(12px);
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    width: 420px;
+    min-width: 280px;
+}
+
+.login label {
+    color: #eee;
+}
+
+.login input {
+    background-color: transparent;
+    color: #eee;
+}
+
+.login input:focus {
+    background-color: transparent;
+    color: #eee;
+}
+
+@media only screen and (max-width: 420px) {
+    .login {
+        width: 340px;
+    }
+}
