@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.login-container {
+body {
     background: linear-gradient(to right, rgba(60, 60, 60, 0.4), rgba(60, 60, 60, 0.4)), url("../../images/bg.avif");
     width: 100%;
     height: 100vh;
@@ -21,7 +21,7 @@
     top: 40%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
-    width: 420px;
+    /* width: 420px; */
     min-width: 280px;
 }
 

@@ -13,7 +13,6 @@ if (!empty($_POST)) {
     if (isset($db) && empty($err)) {
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $db = new DB();
         //check email exist
         $result = $db->crud("SELECT * FROM admins WHERE email=:email", [':email' => $email], true);
         if ($result) {
@@ -21,6 +20,7 @@ if (!empty($_POST)) {
             if (password_verify($password, $result->password)) {
                 $_SESSION['admin']['name'] = $result->name;
                 $_SESSION['admin']['email'] = $result->email;
+                $_SESSION['admin']['id'] = $result->id;
                 $_SESSION['loggedin'] = true;
                 header("location: index.php");
                 die();
@@ -60,33 +60,33 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-    <div class="login-container">
-        <div class="login p-5 shadow-lg">
-            <h4 class="text-light text-center h3 mb-3">Admin Login</h4>
-            <form action="" method="POST">
-                <?php if ($emailErr) : ?>
-                    <div class="alert alert-danger p-2"><i class="fa-solid fa-triangle-exclamation pe-2"></i>Email doesn't exist!</div>
-                <?php endif; ?>
-                <?php if ($pswErr) : ?>
-                    <div class="alert alert-danger p-2"><i class="fa-solid fa-triangle-exclamation pe-2"></i>Incorrect Password</div>
-                <?php endif; ?>
 
-                <div class="mb-3">
-                    <label class="form-label fw-bold">Email:</label>
-                    <p style="color:#EF1510"><?= isset($uiErr['email']) ? '*' . $uiErr['email'] : '' ?></p>
-                    <input type="email" name="email" class="form-control" style="<?= isset($uiErr['email']) ? "border:1px solid red;" : ''; ?>">
-                </div>
-                <div class="mb-4">
-                    <label class="form-label fw-bold">Password:</label>
-                    <p style="color:#EF1510"><?= isset($uiErr['password']) ? '*' . $uiErr['password'] : '' ?></p>
-                    <input type="password" name="password" class="form-control" style="<?= isset($uiErr['password']) ? "border:1px solid red;" : ''; ?>">
-                </div>
-                <div class="mb-3">
-                    <button class="btn text-light w-100" type="submit" style="background-color: #067593;">LOGIN</button>
-                </div>
-            </form>
-        </div>
+    <div class="login p-5 shadow-lg">
+        <h4 class="text-light text-center h3 mb-3">Admin Login</h4>
+        <form action="" method="POST">
+            <?php if ($emailErr) : ?>
+                <div class="alert alert-danger p-2"><i class="fa-solid fa-triangle-exclamation pe-2"></i>Email doesn't exist!</div>
+            <?php endif; ?>
+            <?php if ($pswErr) : ?>
+                <div class="alert alert-danger p-2"><i class="fa-solid fa-triangle-exclamation pe-2"></i>Incorrect Password</div>
+            <?php endif; ?>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Email:</label>
+                <p style="color:#EF1510"><?= isset($uiErr['email']) ? '*' . $uiErr['email'] : '' ?></p>
+                <input type="email" name="email" class="form-control" style="<?= isset($uiErr['email']) ? "border:1px solid red;" : ''; ?>">
+            </div>
+            <div class="mb-4">
+                <label class="form-label fw-bold">Password:</label>
+                <p style="color:#EF1510"><?= isset($uiErr['password']) ? '*' . $uiErr['password'] : '' ?></p>
+                <input type="password" name="password" class="form-control" style="<?= isset($uiErr['password']) ? "border:1px solid red;" : ''; ?>">
+            </div>
+            <div class="mb-3">
+                <button class="btn text-light w-100" type="submit" style="background-color: #067593;">LOGIN</button>
+            </div>
+        </form>
     </div>
+
 </body>
 
 </html>

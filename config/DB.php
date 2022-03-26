@@ -17,7 +17,14 @@ class DB
             $e->getMessage();
         }
     }
-
+    public function checkEmailExist($email)
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM admins WHERE email=:email");
+        $stmt->execute([
+            ':email' => $email
+        ]);
+        return $stmt->fetch();
+    }
     public function crud($query, $data = null, $fetch = null, $fetchAll = null)
     {
         $stmt = $this->pdo->prepare($query);

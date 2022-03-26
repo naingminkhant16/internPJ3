@@ -4,6 +4,8 @@ if (empty($_SESSION['admin']) || empty($_SESSION['loggedin'])) {
     header("location: login.php");
     die();
 }
+require_once "../config/DB.php";
+require_once "../config/functions.php";
 ?>
 <!doctype html>
 <html lang="en">
@@ -44,7 +46,7 @@ if (empty($_SESSION['admin']) || empty($_SESSION['loggedin'])) {
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">GOOD VIDE | ADMIN</a>
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="index.php">GOOD VIDE | ADMIN (<?= $_SESSION['admin']['name'] ?>)</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -59,7 +61,7 @@ if (empty($_SESSION['admin']) || empty($_SESSION['loggedin'])) {
 
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="logout.php">Sign out</a>
+                <a class="nav-link px-3" href="logout.php"><i class="fa-solid fa-right-from-bracket"></i>Sign out</a>
             </div>
         </div>
     </header>
@@ -72,15 +74,19 @@ if (empty($_SESSION['admin']) || empty($_SESSION['loggedin'])) {
                         <span class="list-group-item disabled d-none d-lg-block">
                             <small>CONTROLS</small>
                         </span>
-                        <a href="#" class="list-group-item list-group-item-action ">
+                        <a href="index.php" class="list-group-item list-group-item-action ">
                             <i class="fa-solid fa-newspaper"></i>
-                            <span class="">Articles Dashboard</span>
+                            <span class="">Articles</span>
                             <span class=" badge bg-danger rounded-pill float-end">20</span>
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action">
+                        <a href="admin.php" class="list-group-item list-group-item-action">
                             <i class="fas fa-users"></i>
                             <span class="">Admins</span>
-                            <span class=" badge bg-danger rounded-pill float-end">3</span>
+                            <?php 
+                            $numOfadmins =new DB();
+                            $numOfadmins = $numOfadmins->crud("SELECT * FROM admins",null,null,true);
+                             ?>
+                            <span class=" badge bg-danger rounded-pill float-end"><?=count($numOfadmins)?></span>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action">
                             <i class="fa-solid fa-table"></i>
@@ -97,21 +103,21 @@ if (empty($_SESSION['admin']) || empty($_SESSION['loggedin'])) {
                         <span class="list-group-item disabled d-none d-lg-block">
                             <small>ACTIONS</small>
                         </span>
-                        <a href="#" class="list-group-item list-group-item-action">
-                            <i class="fas fa-user"></i>
-                            <span class="">Add New Admin</span>
+                        <a href="add-admin.php" class="list-group-item list-group-item-action">
+                        <i class="fa-solid fa-user-plus"></i>
+                            <span class="">Add Admin</span>
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action">
+                        <a href="edit-profile.php?id=<?=$_SESSION['admin']['id']?>" class="list-group-item list-group-item-action">
                             <i class="fa-solid fa-user-pen"></i>
-                            <span class="">Edit My Profile</span>
+                            <span class="">Edit MyProfile</span>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action">
                             <i class="fas fa-edit"></i>
-                            <span class="">Write New Article</span>
+                            <span class="">Write Article</span>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action">
                             <i class="fa-regular fa-square-plus"></i>
-                            <span class="">Create New Category</span>
+                            <span class="">Create Category</span>
                         </a>
                     </div>
                 </div>
