@@ -46,7 +46,7 @@ require_once "../config/functions.php";
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="index.php">GOOD VIDE | ADMIN (<?= $_SESSION['admin']['name'] ?>)</a>
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="index.php">GOOD VIDE | (<?= $_SESSION['admin']['name'] ?>)</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -82,16 +82,20 @@ require_once "../config/functions.php";
                         <a href="admin.php" class="list-group-item list-group-item-action">
                             <i class="fas fa-users"></i>
                             <span class="">Admins</span>
-                            <?php 
-                            $numOfadmins =new DB();
-                            $numOfadmins = $numOfadmins->crud("SELECT * FROM admins",null,null,true);
-                             ?>
-                            <span class=" badge bg-danger rounded-pill float-end"><?=count($numOfadmins)?></span>
+                            <?php
+                            $numOfadmins = new DB();
+                            $numOfadmins = $numOfadmins->crud("SELECT * FROM admins", null, null, true);
+                            ?>
+                            <span class=" badge bg-danger rounded-pill float-end"><?= count($numOfadmins) ?></span>
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action">
+                        <a href="category.php" class="list-group-item list-group-item-action">
                             <i class="fa-solid fa-table"></i>
                             <span class="">Categories</span>
-                            <span class=" badge bg-danger rounded-pill float-end">5</span>
+                            <?php
+                            $numOfcats = new DB();
+                            $numOfcats = $numOfcats->crud("SELECT * FROM categories", null, null, true);
+                            ?>
+                            <span class=" badge bg-danger rounded-pill float-end"><?=count($numOfcats)?></span>
                         </a>
                         <!-- <a href="#" class="list-group-item list-group-item-action">
                             <i class="fas fa-flag"></i>
@@ -104,10 +108,10 @@ require_once "../config/functions.php";
                             <small>ACTIONS</small>
                         </span>
                         <a href="add-admin.php" class="list-group-item list-group-item-action">
-                        <i class="fa-solid fa-user-plus"></i>
+                            <i class="fa-solid fa-user-plus"></i>
                             <span class="">Add Admin</span>
                         </a>
-                        <a href="edit-profile.php?id=<?=$_SESSION['admin']['id']?>" class="list-group-item list-group-item-action">
+                        <a href="edit-profile.php?id=<?= $_SESSION['admin']['id'] ?>" class="list-group-item list-group-item-action">
                             <i class="fa-solid fa-user-pen"></i>
                             <span class="">Edit MyProfile</span>
                         </a>
@@ -115,7 +119,7 @@ require_once "../config/functions.php";
                             <i class="fas fa-edit"></i>
                             <span class="">Write Article</span>
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action">
+                        <a href="add-category.php" class="list-group-item list-group-item-action">
                             <i class="fa-regular fa-square-plus"></i>
                             <span class="">Create Category</span>
                         </a>
