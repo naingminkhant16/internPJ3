@@ -77,7 +77,11 @@ require_once "../config/functions.php";
                         <a href="index.php" class="list-group-item list-group-item-action ">
                             <i class="fa-solid fa-newspaper"></i>
                             <span class="">Articles</span>
-                            <span class=" badge bg-danger rounded-pill float-end">20</span>
+                            <?php
+                            $numOfarts = new DB();
+                            $numOfarts = $numOfarts->crud("SELECT * FROM articles", null, null, true);
+                            ?>
+                            <span class=" badge bg-danger rounded-pill float-end"><?= count($numOfarts) ?></span>
                         </a>
                         <a href="admin.php" class="list-group-item list-group-item-action">
                             <i class="fas fa-users"></i>
@@ -95,7 +99,7 @@ require_once "../config/functions.php";
                             $numOfcats = new DB();
                             $numOfcats = $numOfcats->crud("SELECT * FROM categories", null, null, true);
                             ?>
-                            <span class=" badge bg-danger rounded-pill float-end"><?=count($numOfcats)?></span>
+                            <span class=" badge bg-danger rounded-pill float-end"><?= count($numOfcats) ?></span>
                         </a>
                         <!-- <a href="#" class="list-group-item list-group-item-action">
                             <i class="fas fa-flag"></i>
@@ -115,7 +119,7 @@ require_once "../config/functions.php";
                             <i class="fa-solid fa-user-pen"></i>
                             <span class="">Edit MyProfile</span>
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action">
+                        <a href="add-article.php" class="list-group-item list-group-item-action">
                             <i class="fas fa-edit"></i>
                             <span class="">Write Article</span>
                         </a>

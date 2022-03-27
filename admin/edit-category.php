@@ -61,7 +61,7 @@ if (!empty($_POST)) {
         <input type="date" name="updated_at" class="form-control">
     </div>
     <div class="mb-3">
-        <button class="btn btn-outline-dark w-100">Submit</button>
+        <button class="btn btn-outline-dark w-100" type="submit">Submit</button>
     </div>
 
 </form>

@@ -28,7 +28,8 @@ $cats = $db->crud("SELECT * FROM categories", null, false, true);
                         <td><?= $cat->created_at ?></td>
                         <td><?= $cat->updated_at ?></td>
                         <td>
-                            <a href="edit-category.php?id=<?= $cat->id ?>" class="btn btn-outline-dark">Edit<i class="fa-solid fa-pen-to-square ps-2"></i></a>
+                            <a href="edit-category.php?id=<?= $cat->id ?>" class="btn btn-sm btn-outline-dark">Edit<i class="fa-solid fa-pen-to-square ps-2"></i></a>
+                            <a href="delete-category.php?id=<?= $cat->id ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete?')">Delete<i class="fa-solid fa-trash ps-2"></i></a>
                         </td>
                     </tr>
                 <?php $no++;

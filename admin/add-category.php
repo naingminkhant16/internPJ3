@@ -68,7 +68,7 @@ if (!empty($_POST)) {
     </div>
 
     <div class="mb-3">
-        <button class="btn btn-outline-dark w-100">Submit</button>
+        <button class="btn btn-outline-dark w-100" type="submit">Submit</button>
     </div>
 </form>
 
