@@ -7,7 +7,7 @@
   <div class="row row-cols-3">
     <?php
     $articles = new DB();
-    $articles = $articles->crud("SELECT * FROM articles", null, null, true);
+    $articles = $articles->crud("SELECT * FROM articles ORDER BY created_at desc", null, null, true);
     foreach ($articles as $article) :
     ?>
       <div class="col">

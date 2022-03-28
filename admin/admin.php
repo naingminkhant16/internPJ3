@@ -25,7 +25,7 @@ $admins = $db->crud("SELECT * FROM admins", null, false, true);
             <td><?= $admin->email ?></td>
             <td>
               <?php if ($_SESSION['admin']['email'] == $admin->email) : ?>
-                <a href="edit-profile.php?id=<?= $admin->id ?>" class="btn btn-outline-dark">Edit<i class="fa-solid fa-pen-to-square ps-2"></i></a>
+                <a href="edit-profile.php?id=<?= $admin->id ?>" class="btn btn-sm btn-outline-dark">Edit<i class="fa-solid fa-pen-to-square ps-2"></i></a>
               <?php else : ?>
                 #
               <?php endif; ?>
