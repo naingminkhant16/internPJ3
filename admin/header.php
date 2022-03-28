@@ -50,15 +50,27 @@ require_once "../config/functions.php";
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <form action="" class="w-100">
-            <div class="input-group input-group-sm">
-                <input type="search" name="search" class="form-control form-control-dark" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </form>
 
+        <!-- search form -->
+        <?php
+        $link = $_SERVER['PHP_SELF'];
+        $linkArr = explode('/', $link);
+        $page = end($linkArr);
+        ?>
+        <?php if ($page == 'category.php' || $page == 'admin.php' || $page == 'index.php') : ?>
+            <form action="<?php
+                            if ($page == 'category.php') echo "category.php";
+                            elseif ($page == 'admin.php') echo "admin.php";
+                            elseif ($page == 'index.php') echo "index.php";
+                            ?>" method="POST" class="w-100">
+                <div class="input-group input-group-sm">
+                    <input type="search" name="search" class="form-control form-control-dark" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        <?php endif; ?>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
                 <a class="nav-link px-3" href="logout.php"><i class="fa-solid fa-right-from-bracket"></i>Sign out</a>

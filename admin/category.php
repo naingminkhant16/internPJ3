@@ -1,7 +1,6 @@
 <?php require "header.php" ?>
 <?php
-$db = new DB();
-$cats = $db->crud("SELECT * FROM categories", null, false, true);
+
 ?>
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Category Dashboard</h1>
@@ -19,21 +18,35 @@ $cats = $db->crud("SELECT * FROM categories", null, false, true);
                 <th>Actions</th>
             </thead>
             <tbody>
-                <?php $no = 1;
-                foreach ($cats as $cat) : ?>
-                    <tr>
-                        <td><?= $no ?></td>
-                        <td><?= $cat->name ?></td>
-                        <td><?= $cat->description ?></td>
-                        <td><?= $cat->created_at ?></td>
-                        <td><?= $cat->updated_at ?></td>
-                        <td>
-                            <a href="edit-category.php?id=<?= $cat->id ?>" class="btn btn-sm btn-outline-dark">Edit<i class="fa-solid fa-pen-to-square ps-2"></i></a>
-                            <a href="delete-category.php?id=<?= $cat->id ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete?')">Delete<i class="fa-solid fa-trash ps-2"></i></a>
-                        </td>
-                    </tr>
+                <?php
+                if (empty($_POST['search'])) {
+                    $db = new DB();
+                    $cats = $db->crud("SELECT * FROM categories", null, false, true);
+                } else {
+
+                    $searchKey = $_POST['search'];
+                    $db = new DB();
+                    $cats = $db->crud("SELECT * FROM categories WHERE name LIKE '%$searchKey%'", null, false, true);
+                    // dd($admins);
+                }
+                if ($cats) :
+                    $no = 1;
+                    foreach ($cats as $cat) : ?>
+
+                        <tr>
+                            <td><?= $no ?></td>
+                            <td><?= $cat->name ?></td>
+                            <td><?= $cat->description ?></td>
+                            <td><?= $cat->created_at ?></td>
+                            <td><?= $cat->updated_at ?></td>
+                            <td>
+                                <a href="edit-category.php?id=<?= $cat->id ?>" class="btn btn-sm btn-outline-dark">Edit<i class="fa-solid fa-pen-to-square ps-2"></i></a>
+                                <a href="delete-category.php?id=<?= $cat->id ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete?')">Delete<i class="fa-solid fa-trash ps-2"></i></a>
+                            </td>
+                        </tr>
                 <?php $no++;
-                endforeach; ?>
+                    endforeach;
+                endif; ?>
             </tbody>
         </table>
     </div>
