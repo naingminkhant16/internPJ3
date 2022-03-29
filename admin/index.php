@@ -4,7 +4,7 @@
   <h1 class="h2">Articles Dashboard</h1>
 </div>
 <div class="container">
-  <div class="row row-cols-3">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     <?php
     if (empty($_POST['search'])) {
       $articles = new DB();

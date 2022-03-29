@@ -43,7 +43,7 @@ if (!empty($_POST)) {
     <h1 class="h2">Edit Category</h1>
 </div>
 
-<form action="" method="POST" style="max-width: 500px;" class="container mt-4">
+<form action="" method="POST" style="max-width: 500px;" class="container mt-4 mb-3">
 
     <div class="mb-3">
         <label class="form-label">Name :</label>
@@ -65,5 +65,5 @@ if (!empty($_POST)) {
     </div>
 
 </form>
-
+<a href="category.php" class="btn btn-sm btn-outline-dark">Back</a>
 <?php require_once "footer.php" ?>

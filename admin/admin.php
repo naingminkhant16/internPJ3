@@ -34,7 +34,7 @@
               <td><?= $admin->email ?></td>
               <td>
                 <?php if ($_SESSION['admin']['email'] == $admin->email) : ?>
-                  <a href="edit-profile.php?id=<?= $admin->id ?>" class="btn btn-sm btn-outline-dark">Edit<i class="fa-solid fa-pen-to-square ps-2"></i></a>
+                  <a href="edit-profile.php?id=<?= $admin->id ?>" class="btn btn-sm btn-outline-dark"><span class="d-none d-md-inline">Edit</span><i class="fa-solid fa-pen-to-square ps-0 ps-md-2"></i></a>
                 <?php else : ?>
                   #
                 <?php endif; ?>

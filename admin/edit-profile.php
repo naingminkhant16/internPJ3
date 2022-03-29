@@ -68,7 +68,7 @@ if (!empty($_POST)) {
     <h1 class="h2">My Profile</h1>
 </div>
 
-<form action="" method="POST" style="max-width: 500px;" class="container mt-4">
+<form action="" method="POST" style="max-width: 500px;" class="container mt-4 mb-3">
     <h3 class="text-uppercase text-center mb-3">Change Password</h3>
     <?php if ($currentPswErr) : ?>
         <div class="alert alert-warning">
@@ -112,5 +112,5 @@ if (!empty($_POST)) {
         <button class="btn btn-outline-dark w-100" type="submit">Submit</button>
     </div>
 </form>
-
+<a href="admin.php" class="btn btn-sm btn-outline-dark">Back</a>
 <?php require_once "footer.php" ?>

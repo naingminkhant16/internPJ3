@@ -13,7 +13,6 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Created At</th>
                 <th>Updated At</th>
                 <th>Actions</th>
             </thead>
@@ -37,11 +36,10 @@
                             <td><?= $no ?></td>
                             <td><?= $cat->name ?></td>
                             <td><?= $cat->description ?></td>
-                            <td><?= $cat->created_at ?></td>
                             <td><?= $cat->updated_at ?></td>
-                            <td>
-                                <a href="edit-category.php?id=<?= $cat->id ?>" class="btn btn-sm btn-outline-dark">Edit<i class="fa-solid fa-pen-to-square ps-2"></i></a>
-                                <a href="delete-category.php?id=<?= $cat->id ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete?')">Delete<i class="fa-solid fa-trash ps-2"></i></a>
+                            <td class="">
+                                <a href="edit-category.php?id=<?= $cat->id ?>" class="btn btn-sm btn-outline-dark"><span class="d-none d-md-inline">Edit</span> <i class="fa-solid fa-pen-to-square ps-0 ps-md-2"></i></a>
+                                <a href="delete-category.php?id=<?= $cat->id ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete?')"><span class="d-none d-md-inline">Delete</span><i class="fa-solid fa-trash ps-0 ps-md-2"></i></a>
                             </td>
                         </tr>
                 <?php $no++;

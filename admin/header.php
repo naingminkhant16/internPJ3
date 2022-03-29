@@ -46,7 +46,7 @@ require_once "../config/functions.php";
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="index.php">GOOD VIDE | (<?= $_SESSION['admin']['name'] ?>)</a>
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="index.php">GOOD VIDE/(<?= $_SESSION['admin']['name'] ?>)</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -57,7 +57,7 @@ require_once "../config/functions.php";
         $linkArr = explode('/', $link);
         $page = end($linkArr);
         ?>
-        <?php if ($page == 'category.php' || $page == 'admin.php' || $page == 'index.php') : ?>
+        1<?php if ($page == 'category.php' || $page == 'admin.php' || $page == 'index.php') : ?>
             <form action="<?php
                             if ($page == 'category.php') echo "category.php";
                             elseif ($page == 'admin.php') echo "admin.php";
@@ -70,6 +70,9 @@ require_once "../config/functions.php";
                     </div>
                 </div>
             </form>
+            <?php else:?>
+                
+                <div class="flex-fill w-100 bg-dark"></div>
         <?php endif; ?>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
