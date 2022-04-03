@@ -14,6 +14,7 @@ if (!empty($_POST)) {
         $email = $_POST['email'];
         $password = $_POST['password'];
         //check email exist
+        $db = new DB();
         $result = $db->crud("SELECT * FROM admins WHERE email=:email", [':email' => $email], true);
         if ($result) {
             //check password match if email exist
