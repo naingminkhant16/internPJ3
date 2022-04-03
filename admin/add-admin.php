@@ -2,8 +2,8 @@
 <?php
 if (!empty($_POST)) {
     //check empty input fields
-    (!isEmptyInput($_POST)) ? $db = new DB() : $err = isEmptyInput($_POST);
-    if (isset($db) && empty($err)) {
+    (!isEmptyInput($_POST)) ? $noErr=true : $err = isEmptyInput($_POST);
+    if ($noErr && empty($err)) {
         //check email duplicated
         $emailDuplicated = $db->checkEmailExist($_POST['email']);
 

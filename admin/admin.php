@@ -16,14 +16,10 @@
       <tbody>
         <?php
         if (empty($_POST['search'])) {
-          $db = new DB();
           $admins = $db->crud("SELECT * FROM admins", null, false, true);
         } else {
-         
           $searchKey = $_POST['search'];
-          $db = new DB();
           $admins = $db->crud("SELECT * FROM admins WHERE name LIKE '%$searchKey%'", null, false, true);
-        // dd($admins);
         }
         if ($admins) :
           $no = 1;

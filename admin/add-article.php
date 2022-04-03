@@ -4,8 +4,8 @@
 if (!empty($_POST)) {
 
     //check empty input fields
-    (!isEmptyInput($_POST)) ? $db = new DB() : $err = isEmptyInput($_POST);
-    if (isset($db) && empty($err)) {
+    (!isEmptyInput($_POST)) ? $noErr=true : $err = isEmptyInput($_POST);
+    if ($noErr && empty($err)) {
         $title = $_POST['title'];
         $description = $_POST['description'];
         $cat_id = $_POST['category'];
@@ -82,9 +82,8 @@ if (!empty($_POST)) {
         <p style="color:#EF1510"><?= isset($uiErr['category']) ? '*' . $uiErr['category'] : '' ?></p>
         <select class="form-select" name="category">
 
-            <?php
-            $cats = new DB();
-            $cats = $cats->crud("SELECT * FROM categories", null, null, true);
+            <?php       
+            $cats = $db->crud("SELECT * FROM categories", null, null, true);
 
             foreach ($cats as $cat) :
             ?>

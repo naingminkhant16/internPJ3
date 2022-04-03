@@ -6,6 +6,7 @@ if (empty($_SESSION['admin']) || empty($_SESSION['loggedin'])) {
 }
 require_once "../config/DB.php";
 require_once "../config/functions.php";
+$db = new DB();
 ?>
 <!doctype html>
 <html lang="en">
@@ -46,7 +47,7 @@ require_once "../config/functions.php";
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="index.php">GOOD VIDE/(<?= $_SESSION['admin']['name'] ?>)</a>
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="index.php">GOOD VIDE</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -56,8 +57,9 @@ require_once "../config/functions.php";
         $link = $_SERVER['PHP_SELF'];
         $linkArr = explode('/', $link);
         $page = end($linkArr);
+        $search_include_pages = ['category.php', 'admin.php', 'index.php', 'mail.php']
         ?>
-        1<?php if ($page == 'category.php' || $page == 'admin.php' || $page == 'index.php') : ?>
+        <?php if (in_array($page, $search_include_pages)) : ?>
             <form action="<?php
                             if ($page == 'category.php') echo "category.php";
                             elseif ($page == 'admin.php') echo "admin.php";
@@ -65,14 +67,14 @@ require_once "../config/functions.php";
                             ?>" method="POST" class="w-100">
                 <div class="input-group input-group-sm">
                     <input type="search" name="search" class="form-control form-control-dark" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
+                    <!-- <div class="input-group-append">
                         <button class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button>
-                    </div>
+                    </div> -->
                 </div>
             </form>
-            <?php else:?>
-                
-                <div class="flex-fill w-100 bg-dark"></div>
+        <?php else : ?>
+
+            <div class="flex-fill w-100 bg-dark"></div>
         <?php endif; ?>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
@@ -85,7 +87,18 @@ require_once "../config/functions.php";
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky p-3">
+
                     <div class="list-group text-center text-lg-start">
+                        <span class="list-group-item disabled d-lg-block">
+                            <small>ADMIN</small>
+                        </span>
+                        <a href="edit-profile.php?id=<?= $_SESSION['admin']['id'] ?>" class="list-group-item list-group-item-action">
+                            <i class="fa-solid fa-user-shield"></i>
+                            <?= $_SESSION['admin']['name'] ?>
+                        </a>
+                    </div>
+
+                    <div class="list-group text-center text-lg-start mt-4">
                         <span class="list-group-item disabled d-none d-lg-block">
                             <small>CONTROLS</small>
                         </span>
@@ -93,8 +106,7 @@ require_once "../config/functions.php";
                             <i class="fa-solid fa-newspaper"></i>
                             <span class="">Articles</span>
                             <?php
-                            $numOfarts = new DB();
-                            $numOfarts = $numOfarts->crud("SELECT * FROM articles", null, null, true);
+                            $numOfarts = $db->crud("SELECT * FROM articles", null, null, true);
                             ?>
                             <span class=" badge bg-danger rounded-pill float-end"><?= count($numOfarts) ?></span>
                         </a>
@@ -102,8 +114,7 @@ require_once "../config/functions.php";
                             <i class="fas fa-users"></i>
                             <span class="">Admins</span>
                             <?php
-                            $numOfadmins = new DB();
-                            $numOfadmins = $numOfadmins->crud("SELECT * FROM admins", null, null, true);
+                            $numOfadmins = $db->crud("SELECT * FROM admins", null, null, true);
                             ?>
                             <span class=" badge bg-danger rounded-pill float-end"><?= count($numOfadmins) ?></span>
                         </a>
@@ -111,15 +122,18 @@ require_once "../config/functions.php";
                             <i class="fa-solid fa-table"></i>
                             <span class="">Categories</span>
                             <?php
-                            $numOfcats = new DB();
-                            $numOfcats = $numOfcats->crud("SELECT * FROM categories", null, null, true);
+                            $numOfcats = $db->crud("SELECT * FROM categories", null, null, true);
                             ?>
                             <span class=" badge bg-danger rounded-pill float-end"><?= count($numOfcats) ?></span>
                         </a>
-                        <!-- <a href="#" class="list-group-item list-group-item-action">
-                            <i class="fas fa-flag"></i>
-                            <span class="">Reports</span>
-                        </a> -->
+                        <a href="mail.php" class="list-group-item list-group-item-action">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span class="">Mails</span>
+                            <?php
+                            $numOfmails = $db->crud("SELECT * FROM mails", null, null, true);
+                            ?>
+                            <span class=" badge bg-danger rounded-pill float-end"><?= count($numOfmails) ?></span>
+                        </a>
                     </div>
 
                     <div class="list-group mt-4 text-center text-lg-start">

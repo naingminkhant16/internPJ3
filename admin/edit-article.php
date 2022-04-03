@@ -1,14 +1,14 @@
 <?php require_once "header.php" ?>
 <?php
 $id = $_GET['id'];
-$article = new DB();
-$article = $article->crud("SELECT * FROM articles WHERE id=:id", [':id' => $id], true);
+
+$article = $db->crud("SELECT * FROM articles WHERE id=:id", [':id' => $id], true);
 $uiErr = [];
 
 if (!empty($_POST)) {
 
-    (!isEmptyInput($_POST)) ? $db = new DB() : $err = isEmptyInput($_POST);
-    if (isset($db) && empty($err)) {
+    (!isEmptyInput($_POST)) ? $noErr = true : $err = isEmptyInput($_POST);
+    if ($noErr && empty($err)) {
         $title = $_POST['title'];
         $description = $_POST['description'];
         $category_id = $_POST['category'];
@@ -94,8 +94,7 @@ if (!empty($_POST)) {
         <select class="form-select" name="category">
 
             <?php
-            $cats = new DB();
-            $cats = $cats->crud("SELECT * FROM categories", null, null, true);
+            $cats = $db->crud("SELECT * FROM categories", null, null, true);
 
             foreach ($cats as $cat) :
             ?>

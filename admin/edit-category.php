@@ -1,14 +1,14 @@
 <?php require_once "header.php" ?>
 <?php
 $id = $_GET['id'];
-$cat = new DB();
-$cat = $cat->crud("SELECT * FROM categories WHERE id=:id", [':id' => $id], true);
+
+$cat = $db->crud("SELECT * FROM categories WHERE id=:id", [':id' => $id], true);
 $uiErr = [];
 
 if (!empty($_POST)) {
     //check change psw or not
-    (!isEmptyInput($_POST)) ? $db = new DB() : $err = isEmptyInput($_POST);
-    if (isset($db) && empty($err)) {
+    (!isEmptyInput($_POST)) ? $noErr = true : $err = isEmptyInput($_POST);
+    if ($noErr && empty($err)) {
         $name = $_POST['name'];
         $description = $_POST['description'];
         $updated_at = $_POST['updated_at'];

@@ -8,9 +8,9 @@ require_once "../config/DB.php";
 require_once "../config/functions.php";
 if (!empty($_POST)) {
     //check empty input fields
-    (!isEmptyInput($_POST)) ? $db = new DB() : $err = isEmptyInput($_POST);
+    (!isEmptyInput($_POST)) ? $noErr = true : $err = isEmptyInput($_POST);
 
-    if (isset($db) && empty($err)) {
+    if ($noErr && empty($err)) {
         $email = $_POST['email'];
         $password = $_POST['password'];
         //check email exist

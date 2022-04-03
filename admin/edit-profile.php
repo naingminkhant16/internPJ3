@@ -1,8 +1,8 @@
 <?php require_once "header.php" ?>
 <?php
 $id = $_GET['id'];
-$admin = new DB();
-$admin = $admin->crud("SELECT * FROM admins WHERE id=:id", [':id' => $id], true);
+
+$admin = $db->crud("SELECT * FROM admins WHERE id=:id", [':id' => $id], true);
 $uiErr = [];
 
 if (!empty($_POST)) {
@@ -28,7 +28,7 @@ if (!empty($_POST)) {
                     $pswLengthErr = "Password must have atleast 6 characters";
                 } else {
                     //all backend validation success and make query
-                    $db = new DB();
+
                     $query = "UPDATE admins SET name=:name,password=:password WHERE id=:id";
                     $data = [
                         ":name" => $_POST['name'],
@@ -49,7 +49,7 @@ if (!empty($_POST)) {
         //update only name
         (empty(trim($_POST['name']))) ? $uiErr['name'] = "Name is required!" : '';
         if (empty($uiErr)) {
-            $db = new DB();
+
             $query = "UPDATE admins SET name=:name WHERE id=:id";
             $data = [
                 ":name" => $_POST['name'],
