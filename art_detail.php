@@ -12,6 +12,7 @@ $art = $db->crud("SELECT * FROM articles WHERE id=:id", [':id' => $art_id], true
     </div>
 
     <div class="container py-5 text-justify" style="max-width:800px">
+        <p class="text-muted" style="font-size: 12px;"><?= date('l, F d ,y ', strtotime($art->created_at)) ?></p>
         <?php $divideP = strlen($art->description) / 2; ?>
         <p>
             <?= substr($art->description, 0, $divideP) ?>

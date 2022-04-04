@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 03, 2022 at 06:17 AM
+-- Generation Time: Apr 04, 2022 at 02:34 AM
 -- Server version: 8.0.28-0ubuntu0.20.04.3
 -- PHP Version: 7.4.3
 
@@ -132,7 +132,8 @@ INSERT INTO `mails` (`id`, `name`, `email`, `subject`, `message`, `is_read`, `cr
 (4, 'test', 'test@gmail.com', 'testing user mail', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam rerum aliquam esse? Sapiente, temporibus assumenda. Vero laborum rem laudantium cum quos et dolores voluptas ipsam at eaque! Ipsum, praesentium doloribus.\r\n', 1, '2022-04-03 04:52:18'),
 (5, 'Lorem ispum', 'lorem@lorem.org', 'Lorem Ispum', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque aperiam odio ipsum reprehenderit nemo sint distinctio molestias culpa tempora soluta minus neque minima dolores eius recusandae incidunt iste sed, omnis laudantium officiis ab vero corporis consequatur. Sunt, fugit reprehenderit inventore eaque esse quasi nihil. Culpa debitis assumenda consequuntur praesentium delectus magnam porro quo quod ipsum, ipsa ea maxime laborum placeat. Aut, provident fugiat similique beatae ipsa voluptates! Vitae eos beatae nesciunt dolor vel aut voluptate. Aliquam architecto optio in quisquam cumque repudiandae maiores natus animi, suscipit ea quo veniam, non, voluptatem iure tenetur quibusdam ab hic accusamus accusantium et voluptates.\r\n', 0, '2022-04-03 04:55:47'),
 (6, 'Mg Mg', 'mgmg@gmail.com', 'Greate Website', 'Good Vide is  an one of the best websites that I\'ve ever used.', 1, '2022-04-03 05:07:53'),
-(7, 'Su Su', 'ss@gmail.com', 'Testing', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quidem rem, aspernatur asperiores minus sequi quae quod voluptas. Necessitatibus ex iure modi sequi delectus quaerat dolorum molestiae illum fuga ipsa nisi ipsam nihil sit, quia provident rem quos, ea maiores ipsum esse labore? Vitae, rerum? Laborum illum suscipit quos natus non? Illo consequuntur, dolorem iure voluptate dolores architecto necessitatibus aut voluptatem voluptates animi accusantium minima, error tenetur eaque magnam ut. Itaque, fuga repellendus, quis debitis eveniet placeat laboriosam, minima incidunt in cupiditate est assumenda provident excepturi recusandae! Cupiditate pariatur, eos harum expedita, asperiores nostrum necessitatibus totam nisi quasi, animi quo! Necessitatibus quibusdam delectus vitae porro? Sit error aliquam modi quasi dignissimos vitae in nesciunt qui, perspiciatis, harum quam dolor unde similique magni aspernatur labore, reiciendis ad sed temporibus? Rerum voluptates eveniet accusamus alias ducimus deserunt dolorum enim sed error, aperiam ea tenetur odit ullam dolores eligendi eius voluptas labore saepe officia ipsa ad officiis? Sapiente cum est ad asperiores iusto harum! Officiis praesentium totam autem fugit consequuntur. Voluptates ea nostrum ullam, quisquam aut, nesciunt ipsa soluta, alias eos natus iure fuga accusantium corporis dolore debitis voluptatem unde minus aliquid deserunt distinctio officia. Debitis exercitationem dolorem quibusdam vero eos, soluta maxime?\r\n', 0, '2022-04-03 06:14:25');
+(7, 'Su Su', 'ss@gmail.com', 'Testing', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quidem rem, aspernatur asperiores minus sequi quae quod voluptas. Necessitatibus ex iure modi sequi delectus quaerat dolorum molestiae illum fuga ipsa nisi ipsam nihil sit, quia provident rem quos, ea maiores ipsum esse labore? Vitae, rerum? Laborum illum suscipit quos natus non? Illo consequuntur, dolorem iure voluptate dolores architecto necessitatibus aut voluptatem voluptates animi accusantium minima, error tenetur eaque magnam ut. Itaque, fuga repellendus, quis debitis eveniet placeat laboriosam, minima incidunt in cupiditate est assumenda provident excepturi recusandae! Cupiditate pariatur, eos harum expedita, asperiores nostrum necessitatibus totam nisi quasi, animi quo! Necessitatibus quibusdam delectus vitae porro? Sit error aliquam modi quasi dignissimos vitae in nesciunt qui, perspiciatis, harum quam dolor unde similique magni aspernatur labore, reiciendis ad sed temporibus? Rerum voluptates eveniet accusamus alias ducimus deserunt dolorum enim sed error, aperiam ea tenetur odit ullam dolores eligendi eius voluptas labore saepe officia ipsa ad officiis? Sapiente cum est ad asperiores iusto harum! Officiis praesentium totam autem fugit consequuntur. Voluptates ea nostrum ullam, quisquam aut, nesciunt ipsa soluta, alias eos natus iure fuga accusantium corporis dolore debitis voluptatem unde minus aliquid deserunt distinctio officia. Debitis exercitationem dolorem quibusdam vero eos, soluta maxime?\r\n', 0, '2022-04-03 06:14:25'),
+(8, 'Aung Aung', 'ag@gmail.com', 'Recommend Website', 'Lorem ispumLorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti tempora doloribus aut expedita, magni nostrum ea mollitia vitae totam aliquid odit repellat cum ut perspiciatis quisquam ducimus quam velit sint enim aperiam provident fugit. Suscipit unde laborum sit sequi odit!\r\n', 0, '2022-04-04 02:24:51');
 
 --
 -- Indexes for dumped tables
@@ -189,7 +190,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `mails`
 --
 ALTER TABLE `mails`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
