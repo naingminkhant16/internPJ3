@@ -1,6 +1,6 @@
 <!-- Footer Start -->
 <footer class="mt-3">
-    <div class="container footer-wrap">
+    <div class="container footer-wrap mb-3">
         <div class="row">
             <div class="col-md-4 col-sm-6">
 
@@ -33,8 +33,7 @@
 
             <div class="col-md-3 col-sm-6">
                 <h3>BE THE FIRST TO KNOW</h3>
-                <p>Get all the latest information on Triedge Services, Events, Jobs
-                    and Fairs. Sign up for our newsletter today.</p>
+                <p>Get all the latest information on GoodVide. Sign up for our newsletter today.</p>
                 <div class="newsletter">
                     <input type="email" class="form-control" placeholder="Email Address">
                     <button type="submit" class="btn btn-sm btn-outline-light mt-3 mb-3">Submit</button>
@@ -60,12 +59,11 @@
         </div>
 
     </div>
-    <div class="row">
-        <div class="container-fluid">
-            <div class="copyright"> Copyright 2019 | All Rights Reserved by TRIEDGE Solutions Pvt. Ltd.</div>
-        </div>
 
+    <div class="">
+        <div class="copyright"> Copyright 2022 | All Rights Reserved by NMK.</div>
     </div>
+
 </footer>
 
 <!-- Footer End -->

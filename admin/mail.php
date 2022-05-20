@@ -1,7 +1,5 @@
 <?php require "header.php" ?>
-<?php
 
-?>
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Users' Mails Dashboard</h1>
 </div>
@@ -23,7 +21,7 @@
                                                             ?>   mb-3">
                     <div class="card-body">
                         <h5 class="card-title">From <?= $mail->name ?></h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Email - <?= $mail->email ?></h6>
+                        <h6 class="card-subtitle mb-2 text-muted small">Email - <?= $mail->email ?></h6>
                         <h6><?= $mail->subject ?></h6>
                         <hr>
                         <p class="card-text"><?= $mail->message ?></p>

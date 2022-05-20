@@ -1,7 +1,7 @@
 <?php require_once "header.php" ?>
 
 <!-- Carousel Start -->
-<section class="" id="3">
+<section class="carousel-container" id="3">
     <div class="carousel slide" data-bs-ride="carousel" id="slide">
         <ol class="carousel-indicators">
             <li data-bs-target="#slide" data-bs-slide-to="0" class="active"></li>
@@ -12,8 +12,9 @@
             <div class="carousel-item active">
                 <div class="slide1">
                     <div class="carousel-caption">
+                        <h3 class="">Don't miss anything related with Rose`!</h3>
                         <div class="p-3">
-                            <a class="btn-start" href="./Projects.html"></a>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quasi.
                         </div>
                     </div>
                 </div>
@@ -22,8 +23,9 @@
             <div class="carousel-item">
                 <div class="slide2 w-100">
                     <div class="carousel-caption">
+                        <h3 class="">Who is the Real MVP?</h3>
                         <div class="p-3">
-                            <a class="btn-start" href="./Projects.html"></a>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quasi.
                         </div>
                     </div>
                 </div>
@@ -32,8 +34,9 @@
             <div class="carousel-item">
                 <div class="slide3 w-100">
                     <div class="carousel-caption">
+                        <h3 class="">Inspiration of Youth</h3>
                         <div class="p-3">
-                            <a class="btn-start" href="./Projects.html"></a>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quasi.
                         </div>
                     </div>
                 </div>
@@ -46,15 +49,20 @@
             </a>
         </div>
 </section>
+<!-- <div class="bg img-fluid" style="background-image:url('./images/ab.jpg')">
+    <div class="bg-text">
+        <h3>LATEST, TRENDING AND RELIABLE NEWS SITE</h3>
+    </div>
+</div> -->
 <!-- Carousel End -->
 
 <!--categories-->
 
 <div class="container mt-5" id="categories">
 
-    <div class="row g-5">
+    <div class="row">
         <div class="col-12 col-lg-8">
-            <div class="row g-5">
+            <div class="row ">
                 <?php
                 $cats = $db->crud("SELECT * FROM categories", null, null, true);
                 foreach ($cats as $cat) :
@@ -103,7 +111,7 @@
         <!-- latest  -->
         <div class="col-12 col-lg-4">
             <!-- <div class="col-12 col-lg-4 mt-5"> -->
-            <div style=" padding: 10px;">
+            <div style="padding: 10px;">
                 <div class="d-flex w-10 justify-content-center">
                     <h5 class="mb-1">LATEST
                         <hr style="color: red;">

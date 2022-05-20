@@ -1,7 +1,7 @@
 <?php
 require "header.php";
 ?>
-<div class="container mt-5">
+<div class="container my-5">
     <h2>Search Results</h2>
     <hr>
     <div class="row mt-4">

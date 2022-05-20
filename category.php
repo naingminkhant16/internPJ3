@@ -7,12 +7,12 @@ if (empty($_GET['cat_id'])) {
 $cat_id = $_GET['cat_id'];
 ?>
 
-<div class="container">
-  <div class="d-flex w-10 justify-content-between mt-4">
-    <h3 class="mb-1 mt-3"><?php
-                          $title = $db->crud("SELECT * FROM categories WHERE id=:id", [':id' => $cat_id], true);
-                          echo $title->name;
-                          ?>
+<div class="container my-5">
+  <div class="d-flex w-10 justify-content-between">
+    <h3 class=""><?php
+                  $title = $db->crud("SELECT * FROM categories WHERE id=:id", [':id' => $cat_id], true);
+                  echo $title->name;
+                  ?>
       <hr style="color:red;">
     </h3>
   </div>
@@ -24,7 +24,7 @@ $cat_id = $_GET['cat_id'];
     ?>
       <div class="col-12 col-md-6">
         <img src="./images/article_images/<?= $art->image ?>" class="mb-3 img-fluid">
-        <h4><a href="art_detail.php?art_id=<?=$art->id?>" class="text-decoration-none text-dark"><?= $art->title ?></a></h4>
+        <h4><a href="art_detail.php?art_id=<?= $art->id ?>" class="text-decoration-none text-dark"><?= $art->title ?></a></h4>
         <span class="badge bg-dark rounded-pill p-2 mb-2">
           <?php
           $art_name = $db->crud("SELECT name FROM categories WHERE id=$art->category_id", null, true);

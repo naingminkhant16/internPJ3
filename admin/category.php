@@ -32,7 +32,7 @@
                             <td><?= $no ?></td>
                             <td><?= $cat->name ?></td>
                             <td><?= $cat->description ?></td>
-                            <td class="d-none d-md-block"><?= $cat->updated_at ?></td>
+                            <td class="d-none d-md-block"><?= ($cat->updated_at) ?></td>
                             <td class="">
                                 <a href="edit-category.php?id=<?= $cat->id ?>" class="btn btn-sm btn-outline-dark"><span class="d-none d-md-inline">Edit</span> <i class="fa-solid fa-pen-to-square ps-0 ps-md-2"></i></a>
                                 <a href="delete-category.php?id=<?= $cat->id ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete?')"><span class="d-none d-md-inline">Delete</span><i class="fa-solid fa-trash ps-0 ps-md-2"></i></a>
